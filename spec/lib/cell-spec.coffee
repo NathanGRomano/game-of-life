@@ -51,3 +51,8 @@ describe 'a cell', ->
     When -> @res = @cell.topLeft()
     Then -> expect(@res.x).toBe 3
     And -> expect(@res.y).toBe 3
+
+  describe 'a cell can be inside a set of boundaries', ->
+
+    When -> @res = @cell.within(0, 0, 4, 4)
+    Then -> expect(@res).toBe true
