@@ -23,5 +23,13 @@ describe 'a grid of cells', ->
     Given -> @grid.live 4, 4
     Given -> @grid.live 3, 4
     Given -> @grid.live 4, 5
-    When -> @res = @grid.neigbors 4, 4
+    When -> @res = @grid.neighbors 4, 4
     Then -> expect(@res).toBe 2
+
+  describe 'with any live cell with with fewer than two neighbors after a generation will die', ->
+
+    Given -> @grid.live 4,4
+    Given -> @grid.live 4,3
+    When -> @grid = @grid.generate()
+    Then -> expect(@grid.cell(4,4)).toBe false
+    And -> expect(@grid.cell(4,3)).toBe false
