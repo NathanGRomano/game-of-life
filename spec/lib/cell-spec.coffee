@@ -12,4 +12,8 @@ describe 'a cell', ->
 
   describe 'has a top right', ->
 
+    When -> @res = @cell.topRight()
+    Then -> expect(@res.x).toBe 5
+    And -> expect(@res.y).toBe 3
+
 
