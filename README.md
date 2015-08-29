@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/turbonetix/skeleton.svg?branch=master)](https://travis-ci.org/NathanGRomano/game-of-life)
+[![Build Status](https://travis-ci.org/NathanGRomano/game-of-life.svg?branch=master)](https://travis-ci.org/NathanGRomano/game-of-life)
 
 A game of life implementation with NodeJS using a TDD approach!
 
@@ -15,7 +15,7 @@ Clone this repository
 
 cd into the directory and install the dependencies
 
-    > cd skeleton
+    > cd game-of-life
     > npm install && npm shrinkwrap --dev
 
 # Running Tests
