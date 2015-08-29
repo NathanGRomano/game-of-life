@@ -33,3 +33,11 @@ describe 'a grid of cells', ->
     When -> @grid = @grid.generate()
     Then -> expect(@grid.cell(4,4)).toBe false
     And -> expect(@grid.cell(4,3)).toBe false
+
+  describe 'with any live cell with with two or three live neighbors after a generation will live', ->
+
+    Given -> @grid.live 4,4
+    Given -> @grid.live 4,3
+    Given -> @grid.live 5,4
+    When -> @grid = @grid.generate()
+    Then -> expect(@grid.cell(4,4)).toBe true
