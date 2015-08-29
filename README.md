@@ -8,7 +8,7 @@ Install node.js (See download and install instructions here: http://nodejs.org/)
 
 Clone this repository
 
-    > git clone git@github.com:turbonetix/skeleton.git
+    > git clone git@github.com:NathanGRomano/game-of-life.git
 
 cd into the directory and install the dependencies
 
