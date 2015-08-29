@@ -18,4 +18,10 @@ describe 'a grid of cells', ->
     When -> @grid.die 3,3
     Then -> expect(@grid.cell(3,3)).toBe false
 
+  describe 'with any cell the grid can get its active neighbors', ->
 
+    Given -> @grid.live 4, 4
+    Given -> @grid.live 3, 4
+    Given -> @grid.live 4, 5
+    When -> @res = @grid.neigbors 4, 4
+    Then -> expect(@res).toBe 2
