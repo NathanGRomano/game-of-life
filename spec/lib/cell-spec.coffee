@@ -33,3 +33,9 @@ describe 'a cell', ->
     When -> @res = @cell.bottom()
     Then -> expect(@res.x).toBe 4
     And -> expect(@res.y).toBe 5
+
+  describe 'has a bottom left', ->
+
+    When -> @res = @cell.bottomLeft()
+    Then -> expect(@res.x).toBe 3
+    And -> expect(@res.y).toBe 5
