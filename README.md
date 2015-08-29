@@ -1,10 +1,6 @@
-[![Build Status](https://travis-ci.org/turbonetix/skeleton.svg?branch=master)](https://travis-ci.org/turbonetix/skeleton)
-[![NPM version](https://badge.fury.io/js/skeleton.svg)](http://badge.fury.io/js/skeleton)
-[![David DM](https://david-dm.org/turbonetix/skeleton.png)](https://david-dm.org/turbonetix/skeleton.png)
+[![Build Status](https://travis-ci.org/turbonetix/skeleton.svg?branch=master)](https://travis-ci.org/NathanGRomano/game-of-life)
 
-![Bus.IO](https://raw.github.com/turbonetix/bus.io/master/logo.png)
-
-A skeleton we use for starting our projects!
+A game of life implementation with NodeJS using a TDD approach!
 
 # Installation and Environment Setup
 
@@ -36,3 +32,5 @@ To run the tests, just run grunt
     > grunt spec
 
 ## TODO
+
+Make a pretty UI maybe
