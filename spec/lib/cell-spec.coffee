@@ -56,3 +56,8 @@ describe 'a cell', ->
 
     When -> @res = @cell.within(0, 0, 4, 4)
     Then -> expect(@res).toBe true
+
+  describe 'a cell can be outside a set of boundaries', ->
+
+    When -> @res = @cell.within(0, 0, 3, 3)
+    Then -> expect(@res).toBe false
