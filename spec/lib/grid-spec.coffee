@@ -44,6 +44,7 @@ describe 'a grid of cells', ->
 
   describe 'with any live cell with with more than three live neighbors dies', ->
 
+    Given -> @grid.live 3,4
     Given -> @grid.live 4,4
     Given -> @grid.live 4,3
     Given -> @grid.live 5,4
