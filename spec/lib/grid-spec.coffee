@@ -13,3 +13,9 @@ describe 'a grid of cells', ->
     When -> @grid.live 3,3
     Then -> expect(@grid.cell(3,3)).toBe true
 
+  describe 'with a dead cell should return false after death', ->
+
+    When -> @grid.die 3,3
+    Then -> expect(@grid.cell(3,3)).toBe false
+
+
