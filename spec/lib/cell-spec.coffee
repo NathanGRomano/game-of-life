@@ -16,4 +16,10 @@ describe 'a cell', ->
     Then -> expect(@res.x).toBe 5
     And -> expect(@res.y).toBe 3
 
+  describe 'has a right', ->
+
+    When -> @res = @cell.right()
+    Then -> expect(@res.x).toBe 5
+    And -> expect(@resy).toBe 4
+
 
