@@ -51,3 +51,11 @@ describe 'a grid of cells', ->
     Given -> @grid.live 4,5
     When -> @grid = @grid.generate()
     Then -> expect(@grid.cell(4,4)).toBe false
+
+  describe 'with any dead cell with exactly three live neighbors becomes a live cell', ->
+
+    Given -> @grid.live 4,3
+    Given -> @grid.live 5,4
+    Given -> @grid.live 4,5
+    When -> @grid.generate()
+    Then -> expect(@grid.cell(4,4)).toBe true
