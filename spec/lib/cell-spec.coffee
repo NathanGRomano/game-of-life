@@ -20,6 +20,6 @@ describe 'a cell', ->
 
     When -> @res = @cell.right()
     Then -> expect(@res.x).toBe 5
-    And -> expect(@resy).toBe 4
+    And -> expect(@res.y).toBe 4
 
 
