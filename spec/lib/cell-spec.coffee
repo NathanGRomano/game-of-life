@@ -22,4 +22,8 @@ describe 'a cell', ->
     Then -> expect(@res.x).toBe 5
     And -> expect(@res.y).toBe 4
 
+  describe 'has a bottom right', ->
 
+    When -> @res = @cell.bottomRight()
+    Then -> expect(@res.x).toBe 5
+    And -> expect(@res.y).toBe 5
