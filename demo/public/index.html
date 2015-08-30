@@ -1,17 +1,28 @@
 <!DOCTYPE html>
+<link href='https://fonts.googleapis.com/css?family=Muli:400,300italic' rel='stylesheet' type='text/css'>
 <style type="text/css">
-  body { text-align: center; margin:0; padding:0;}
-  .screen { margin:0 auto; display:table; cursor:pointer; border:1px solid #DDD; }
-  .screen .row { display:table-row; }
-  .screen .row span { display:table-cell; border:1px solid #EEE; width:.5em; height:.5em; }
-  .screen .row span.live { background-color: #000 }
+  body { text-align: center; margin:0; padding:0; background:#EEE; font-family: 'Muli', sans-serif; }
+  h1 { background: #2CC12C; margin:0; padding:1em;
+    -webkit-box-shadow: 0px 9px 20px 1px rgba(0,0,0,0.39);
+    -moz-box-shadow: 0px 9px 20px 1px rgba(0,0,0,0.39);
+    box-shadow: 0px 9px 20px 1px rgba(0,0,0,0.39);
+  }
+  h1 a { color: #FFF; text-decoration:none;
+    text-shadow: 0px 5px 10px rgba(150, 150, 150, 1);
+  }
+  p { color: #444; }
+  a { color: #2CC12C }
+  .screen { margin:0 auto; display:table; cursor:pointer; background: #EEE; }
+  .screen .row { display:table-row; padding:6px; }
+  .screen .row span { display:table-cell; border-radius:4px; border:1px solid #DDD; width:.5em; height:.5em; background-color:#EEE; margin:6px; }
+  .screen .row span.live { background-color: #2CC12C; }
 </style>
-<h1>Conway's Game of Life</h2>
+<h1><a href="//en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a></h1>
 <h2>A Shared Petri Dish</h2>
 <h3>By Nathan Romano</h3>
 <p>Click and Drag your cursor over the grid. Watch as others help culture the petri dish too. Each generation is calculated every second.</p>
-<p>This demo is available on <a href="http://github.com/NathanGRomano/game-of-life">http://github.com/NathanGRomano/game-of-life</a></p>
-<p>Generation Count: <span id="generations"></span></p>
+<p>This code is available at <a href="http://github.com/NathanGRomano/game-of-life">http://github.com/NathanGRomano/game-of-life</a></p>
+<p><em>Generation Count: <span id="generations"></span></em></p>
 <div class="screen" draggable="false"></div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
