@@ -5,6 +5,7 @@ A game of life implementation with NodeJS using a TDD approach!
 This library exposes a single `Grid` API.  The API allows one to 
 build a Game of Life simulation.  
 
+
 # Installation and Environment Setup
 
 Install node.js (See download and install instructions here: http://nodejs.org/).
@@ -33,6 +34,34 @@ Tests are run using grunt.  You must first globally install the grunt-cli with n
 To run the tests, just run grunt
 
     > grunt spec
+
+## Running the Example
+
+Running the example is easy.
+
+    > node example.js
+
+You will see this output:
+
+```
+Conway's Game of Life
+
+Inital State:
+......o.
+ooo...o.
+......o.
+........
+...oo...
+...oo...
+
+First Generation:
+.o......
+.o...ooo
+.o......
+........
+...oo...
+...oo...
+```
 
 ## API
 
