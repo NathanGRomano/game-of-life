@@ -6,6 +6,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var Grid = require('../lib').Grid;
 var screen = {
+  generations: 0,
   grid: function () {
     if (!this._grid) this._grid = Grid(100,100);
     return this._grid;
@@ -19,6 +20,7 @@ var screen = {
     return this;
   },
   tick: function () {
+    this.generations++;
     this._grid = this.grid().generate();
     return this;
   }
@@ -28,6 +30,7 @@ setInterval(function () {
   io.emit('cells', screen.tick().grid().cells);
 }, 1000);
 io.on('connection', function (sock) {
+  sock.emit('generations', screen.generations);
   sock.on('live', function (x, y) {
     console.log('live %s,%s',x,y);
     screen.live(x, y);

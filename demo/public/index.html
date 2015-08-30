@@ -9,13 +9,14 @@
 <h1>Conway's Game of Life</h2>
 <h2>A Shared Petri Dish</h2>
 <h3>By Nathan Romano</h3>
-<p>Click and Drag your cursor over the grid. Watch as others help culture the petri dish too.</p>
+<p>Click and Drag your cursor over the grid. Watch as others help culture the petri dish too. Each generation is calculated every second.</p>
 <p>This demo is available on <a href="http://github.com/NathanGRomano/game-of-life">http://github.com/NathanGRomano/game-of-life</a></p>
+<p>Generation Count: <span id="generations"></span></p>
 <div class="screen" draggable="false"></div>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-  var sock, screen = $('.screen'),row,cell,i,j,w=100,h=100,mousedown=false;
+  var sock, screen = $('.screen'),row,cell,i,j,w=100,h=100,mousedown=false,generations=0;
   screen.mousedown(function () {
     mousedown = true;
   });
@@ -42,7 +43,13 @@
     screen.append(row);
   }
   sock = io.connect();
+  sock.on('generations', function (count) {
+    generations = count;
+    $('#generations').html(generations);
+  });
   sock.on('cells', function (cells) {
+    generations++;
+    $('#generations').html(generations);
     var i,cell;
     for (i=0; i<cells.length; i++) {
       cell = $('#cell'+i);
