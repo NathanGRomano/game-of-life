@@ -59,3 +59,11 @@ describe 'a grid of cells', ->
     Given -> @grid.live 4,5
     When -> @grid = @grid.generate()
     Then -> expect(@grid.cell(4,4)).toBe true
+
+  describe 'can render itself', ->
+
+    Given -> @grid = @Grid 2,2
+    Given -> @grid.live 0,0
+    Given -> @grid.live 1,1
+    When -> @res = @grid.toString()
+    Then -> expect(@res).toBe 'o.\n.o'
