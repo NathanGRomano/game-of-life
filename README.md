@@ -73,7 +73,7 @@ Create a grid with a `width` of `10` and a `height` of `10`.
 
 ### #(width:Number, height:Number)
 
-```
+```javascript
 var grid = Grid(10,10);
 ```
 
@@ -81,7 +81,7 @@ var grid = Grid(10,10);
 
 This will make a cell alive.
 
-```
+```javascript
 grid.live(4, 4)
 ```
 
@@ -89,7 +89,7 @@ grid.live(4, 4)
 
 This will make a cell dead.
 
-```
+```javascript
 grid.die(4, 4)
 ```
 
@@ -97,7 +97,7 @@ grid.die(4, 4)
 
 This will calculate the next generation of the grid and return it.
 
-```
+```javascript
 var nextGenerationGrid = grid.generate();
 ```
 
