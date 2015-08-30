@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<style type="text/css">
+  body { text-align: center; margin:0; padding:0;}
+  .screen { margin:0 auto; display:table; cursor:pointer; border:1px solid #DDD; }
+  .screen .row { display:table-row; }
+  .screen .row span { display:table-cell; border:1px solid #EEE; width:.5em; height:.5em; }
+  .screen .row span.live { background-color: #000 }
+</style>
+<h1>Conway's Game of Life</h2>
+<h2>A Shared Petri Dish</h2>
+<h3>By Nathan Romano</h3>
+<p>Click and Drag your cursor over the grid. Watch as others help culture the petri dish too.</p>
+<p>This demo is available on <a href="http://github.com/NathanGRomano/game-of-life">http://github.com/NathanGRomano/game-of-life</a></p>
+<div class="screen" draggable="false"></div>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var sock, screen = $('.screen'),row,cell,i,j,w=100,h=100,mousedown=false;
+  screen.mousedown(function () {
+    mousedown = true;
+  });
+  screen.mouseup(function () {
+    mousedown = false;
+  });
+  for (i=0; i<h; i++) {
+    row = $('<div>');
+    row.addClass('row');
+    for (j=0; j<w; j++) {
+      cell = $('<span>');
+      cell.data('id', ((i*w)+j));
+      cell.data('x', j);
+      cell.data('y', i);
+      cell.attr('id', 'cell' + cell.data('id'));
+      cell.mouseover(function () {
+        if (!mousedown) return;
+        var self=$(this),action=(self.hasClass('live') ? 'die' : 'live'), x = self.data('x'), y = self.data('y');
+        console.log('action', action, 'x', x, 'y', y);
+        sock.emit(action, x, y);
+      });
+      row.append(cell)
+    }
+    screen.append(row);
+  }
+  sock = io.connect();
+  sock.on('cells', function (cells) {
+    var i,cell;
+    for (i=0; i<cells.length; i++) {
+      cell = $('#cell'+i);
+      cell.removeClass('live');
+      if (cells[i]) cell.addClass('live');
+    }
+  });
+</script>
