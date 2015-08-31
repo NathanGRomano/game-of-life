@@ -5,6 +5,8 @@ A game of life implementation with NodeJS using a TDD approach!
 This library exposes a single `Grid` API.  The API allows one to 
 build a Game of Life simulation.  
 
+A demo can be viewed at [nathanromano.me:4000](http://nathanromano.me:4000).
+
 
 # Installation and Environment Setup
 
